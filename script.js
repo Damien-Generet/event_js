@@ -145,10 +145,23 @@ viewBtn.addEventListener("mouseover", onMouseOver);
 
 let rightBtn = document.querySelector("main section div p").childNodes[3];
 let allCard2 = document.getElementsByClassName("row")[1];
- console.log(allCard2)
 function wtf() {
   let lastCard = allCard2.lastElementChild;
   allCard2.insertBefore(lastCard, allCard2.firstChild);
 };
 
 rightBtn.addEventListener("click", wtf);
+
+// Exo 8
+
+let leftBtn = document.querySelector("main section div p a");
+
+function wtfInverse(e) {
+    console.log(e)
+  e.preventDefault();
+  let firstCard = allCard2.firstElementChild;
+  allCard2.insertBefore(firstCard, allCard2.lastChild);
+};
+
+leftBtn.addEventListener("click", wtfInverse);
+
