@@ -165,3 +165,47 @@ function wtfInverse(e) {
 
 leftBtn.addEventListener("click", wtfInverse);
 
+// exo 9
+
+//selectionchange
+
+let logoDiv = document.querySelector("strong").textContent;
+console.log(logoDiv)
+let body = document.querySelector("body");
+
+document.addEventListener("mouseup", selectText)
+function selectText(){
+    let selObj = document.getSelection();
+    let textSelected = selObj.toString();
+    console.log(textSelected);
+    if(textSelected === logoDiv){
+        document.addEventListener("keypress", logKey);
+    } else if(textSelected != logoDiv){
+        document.removeEventListener("keypress", logKey);
+    }
+    return
+}
+
+function logKey(e) {
+    
+    console.log(e)
+    let keyPressed = e.key;
+
+    switch(keyPressed) {
+        case "a":
+        body.removeAttribute("class");
+        body.classList.add("col-4");
+        break;
+        case "y":
+            body.removeAttribute("class");
+            body.classList.add("col-4", "offset-md-4");
+        break;
+        case "p":
+            body.removeAttribute("class");
+        body.classList.add("col-4", "offset-md-8");
+        break;
+        case "b":
+            body.removeAttribute("class");
+        break;
+    }
+}
